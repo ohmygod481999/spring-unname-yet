@@ -1,15 +1,21 @@
 package org.vnu.unname.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
+
+import javax.persistence.*;
 import java.util.UUID;
 
 @Entity
-@Table(name = "test")
+@Table(name = "test_table")
 public class SampleModel {
     @Id
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(
+            name = "UUID",
+            strategy = "org.hibernate.id.UUIDGenerator"
+    )
+//    @Column(name = "id", columnDefinition = "VARCHAR(255)")
     private UUID id;
 
     @Column(name = "name")
@@ -22,11 +28,11 @@ public class SampleModel {
 
     }
 
-    public SampleModel(UUID id, String name, int age) {
-        this.id = id;
-        this.name = name;
-        this.age = age;
-    }
+//    public SampleModel(UUID id, String name, int age) {
+//        this.id = id;
+//        this.name = name;
+//        this.age = age;
+//    }
 
     public String getName() {
         return name;
@@ -42,5 +48,9 @@ public class SampleModel {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public UUID getId() {
+        return this.id;
     }
 }

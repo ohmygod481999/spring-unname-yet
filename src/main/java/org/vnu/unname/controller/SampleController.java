@@ -2,8 +2,7 @@ package org.vnu.unname.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.vnu.unname.model.SampleModel;
 import org.vnu.unname.repository.SampleRepository;
 import org.vnu.unname.service.SampleService;
@@ -21,8 +20,14 @@ public class SampleController {
         StringBuilder stringBuilder = new StringBuilder();
         sampleModels.forEach(sample -> {
             stringBuilder.append(", ");
-            stringBuilder.append(sample.getName());
+            stringBuilder.append(sample.getId());
         });
         return stringBuilder.toString();
+    }
+
+    @PostMapping("/")
+    public SampleModel postSample(@RequestBody SampleModel sampleModel) {
+        sampleService.saveSample(sampleModel);
+        return sampleModel;
     }
 }

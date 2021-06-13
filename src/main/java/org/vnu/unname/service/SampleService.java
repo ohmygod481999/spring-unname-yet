@@ -19,4 +19,8 @@ public class SampleService {
     public List<SampleModel> getSamples() {
         return sampleRepository.findAll();
     }
+
+    public void saveSample(SampleModel sampleModel) {
+        sampleRepository.save(sampleModel);
+    }
 }

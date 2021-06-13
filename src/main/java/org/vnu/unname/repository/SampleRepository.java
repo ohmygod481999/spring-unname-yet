@@ -5,5 +5,5 @@ import org.vnu.unname.model.SampleModel;
 
 import java.util.UUID;
 
-public interface SampleRepository extends JpaRepository<SampleModel, UUID> {
+public interface SampleRepository extends JpaRepository<SampleModel, String> {
 }
