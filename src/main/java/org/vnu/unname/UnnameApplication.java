@@ -12,11 +12,11 @@ public class UnnameApplication {
 	public static void main(String[] args) {
 		ApplicationContext context = SpringApplication.run(UnnameApplication.class, args);
 
-		SampleRepository sampleRepository = context.getBean(SampleRepository.class);
-
-		SampleModel sampleModel = new SampleModel();
-		sampleRepository.save(sampleModel);
-		System.out.println(sampleModel.getId());
+//		SampleRepository sampleRepository = context.getBean(SampleRepository.class);
+//
+//		SampleModel sampleModel = new SampleModel();
+//		sampleRepository.save(sampleModel);
+//		System.out.println(sampleModel.getId());
 	}
 
 }

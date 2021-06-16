@@ -15,7 +15,6 @@ public class SampleModel {
             name = "UUID",
             strategy = "org.hibernate.id.UUIDGenerator"
     )
-//    @Column(name = "id", columnDefinition = "VARCHAR(255)")
     private UUID id;
 
     @Column(name = "name")
